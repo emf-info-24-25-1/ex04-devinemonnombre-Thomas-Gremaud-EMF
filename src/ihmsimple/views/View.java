@@ -2,8 +2,6 @@ package ihmsimple.views;
 
 import ihmsimple.ctrl.Controller;
 
-import static ihmsimple.services.ServiceDevine.NOMBRE_INVALIDE;
-
 import java.awt.Color;
 
 /**
@@ -15,50 +13,51 @@ import java.awt.Color;
  */
 public class View extends javax.swing.JFrame {
 
-    /**
-     * ATTENTION : ces attributs de l'ihm ne doivent pas être modifiés car
-     * automatiquement modifiés et regénérés par l'éditeur.
-     */
-    // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButtonDeviner;
-    private javax.swing.JButton jButtonNouveauJeu;
-    private javax.swing.JLabel jLabelEtat;
-    private javax.swing.JLabel jLabelLogo;
-    private javax.swing.JLabel jLabelProposition;
-    private javax.swing.JTextField jTextFieldProposition;
-    // End of variables declaration//GEN-END:variables
-
-    /**
-     * La référence au contrôleur de l'application.
-     */
-    private Controller refCtrl;
-
-    /**
-     * Constructeur de l'ihm.
-     */
-    public View() {
-        this.refCtrl = null;
-    }
-
-    /**
-     * Prépare l'ihm et ses composants puis rends l'ihm visible à l'écran.
-     */
-    public void ihmStart() {
-        initComponents();
-        setLocationRelativeTo( null );
-        setVisible( true );
-    }
-
-    /**
-     * Retourne la valeur entière correspondant à ce qui a été saisi par l'utilisateur dans le champ "proposition".
-     *
-     * @return la valeur entière correspondante ou NOMBRE_INVALIDE si ce qui a été saisi par l'utilisateur n'est pas
-     *         convertible en un entier
-     */
-    public int lireValeurProposee() {
-
-        String contenu = jTextFieldProposition.getText();
-        int valeur = NOMBRE_INVALIDE;
+    private static final int NOMBRE_INVALIDE = 0;
+        /**
+         * ATTENTION : ces attributs de l'ihm ne doivent pas être modifiés car
+         * automatiquement modifiés et regénérés par l'éditeur.
+         */
+        // Variables declaration - do not modify//GEN-BEGIN:variables
+        private javax.swing.JButton jButtonDeviner;
+        private javax.swing.JButton jButtonNouveauJeu;
+        private javax.swing.JLabel jLabelEtat;
+        private javax.swing.JLabel jLabelLogo;
+        private javax.swing.JLabel jLabelProposition;
+        private javax.swing.JTextField jTextFieldProposition;
+        // End of variables declaration//GEN-END:variables
+    
+        /**
+         * La référence au contrôleur de l'application.
+         */
+        private Controller refCtrl;
+    
+        /**
+         * Constructeur de l'ihm.
+         */
+        public View() {
+            this.refCtrl = null;
+        }
+    
+        /**
+         * Prépare l'ihm et ses composants puis rends l'ihm visible à l'écran.
+         */
+        public void ihmStart() {
+            initComponents();
+            setLocationRelativeTo( null );
+            setVisible( true );
+        }
+    
+        /**
+         * Retourne la valeur entière correspondant à ce qui a été saisi par l'utilisateur dans le champ "proposition".
+         *
+         * @return la valeur entière correspondante ou NOMBRE_INVALIDE si ce qui a été saisi par l'utilisateur n'est pas
+         *         convertible en un entier
+         */
+        public int lireValeurProposee() {
+    
+            String contenu = jTextFieldProposition.getText();
+            int valeur = NOMBRE_INVALIDE;
 
         try {
             valeur = Integer.valueOf( contenu );
@@ -199,7 +198,7 @@ public class View extends javax.swing.JFrame {
      * @param evt l'événement clic suite à la pression du bouton jButtonDeviner
      */
     private void jButtonDevinerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonDevinerActionPerformed
-        refCtrl.actionDeviner();
+        refCtrl.actionDeviner(evt);
     }//GEN-LAST:event_jButtonDevinerActionPerformed
 
 
